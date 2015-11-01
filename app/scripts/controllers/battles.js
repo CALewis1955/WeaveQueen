@@ -11,5 +11,5 @@ angular.module('weaveQueenApp')
   .controller('BattlesCtrl', ['$scope', function ($scope) {
     $scope.weaves = [
 
-
+      ]
   }]);
