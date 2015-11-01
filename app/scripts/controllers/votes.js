@@ -8,6 +8,8 @@
  * Controller of the weaveQueenApp
  */
 angular.module('weaveQueenApp')
-  .controller('VotesCtrl', function () {
+  .controller('VotesCtrl', votesCtrl);
 
-  });
+function votesCtrl($scope) {
+
+  }

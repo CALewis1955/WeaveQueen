@@ -8,6 +8,8 @@
  * Controller of the weaveQueenApp
  */
 angular.module('weaveQueenApp')
-  .controller('SettingsCtrl', function () {
+  .controller('SettingsCtrl', settingsCtrl);
 
-  });
+function settingsCtrl($scope) {
+
+  }

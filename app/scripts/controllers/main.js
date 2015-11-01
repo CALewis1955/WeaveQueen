@@ -8,10 +8,12 @@
  * Controller of the weaveQueenApp
  */
 angular.module('weaveQueenApp')
-  .controller('MainCtrl', function () {
+  .controller('MainCtrl', mainCtrl);
+
+function mainCtrl($scope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+  }

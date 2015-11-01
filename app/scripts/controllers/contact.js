@@ -8,6 +8,8 @@
  * Controller of the weaveQueenApp
  */
 angular.module('weaveQueenApp')
-  .controller('ContactCtrl', function () {
+  .controller('ContactCtrl', contactCtrl);
 
-  });
+function contactCtrl($scope) {
+
+  }

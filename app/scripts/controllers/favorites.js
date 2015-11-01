@@ -8,6 +8,8 @@
  * Controller of the weaveQueenApp
  */
 angular.module('weaveQueenApp')
-  .controller('FavoritesCtrl', function () {
+  .controller('FavoritesCtrl', favoritesCtrl);
 
-  });
+function favoritesCtrl($scope) {
+
+  }

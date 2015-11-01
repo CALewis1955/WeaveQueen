@@ -8,10 +8,12 @@
  * Controller of the weaveQueenApp
  */
 angular.module('weaveQueenApp')
-  .controller('AboutCtrl', function () {
+  .controller('AboutCtrl', aboutCtrl);
+
+function aboutCtrl($scope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+  }

@@ -8,8 +8,10 @@
  * Controller of the weaveQueenApp
  */
 angular.module('weaveQueenApp')
-  .controller('BattlesCtrl', ['$scope', function ($scope) {
-    $scope.weaves = [
+  .controller('BattlesCtrl', battlesCtrl);
 
-      ]
-  }]);
+function battlesCtrl($scope) {
+     $scope.weaves = [
+
+      ];
+}
