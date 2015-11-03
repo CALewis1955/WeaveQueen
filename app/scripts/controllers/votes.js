@@ -12,4 +12,6 @@ angular.module('weaveQueenApp')
 
 function votesCtrl($scope) {
 
-  }
+}
+
+
