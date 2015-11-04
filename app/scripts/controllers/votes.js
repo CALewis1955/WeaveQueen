@@ -10,7 +10,7 @@
 angular.module('weaveQueenApp')
   .controller('VotesCtrl', votesCtrl);
 
-function votesCtrl($scope) {
+function votesCtrl() {
 
 }
 

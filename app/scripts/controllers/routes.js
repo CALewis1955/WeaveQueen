@@ -39,12 +39,12 @@ angular.module('weaveQueenApp')
     .state('votes', {
       url: '/votes',
       templateUrl: 'views/votes.html',
-      controller: 'VotesCtrl as votes'
+      controller: 'BattlesCtrl as battle'
     })
     .state('battles', {
       url: '/battles',
       templateUrl: 'views/battles.html',
-      controller: 'BattlesCtrl as battles'
+      controller: 'BattlesCtrl as battle'
     })
     .state('favorites', {
       url: '/favorites',

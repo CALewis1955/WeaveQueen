@@ -1,13 +1,13 @@
-<a class="photoWinner"><img class="photoWinner" src="images/Kim.jpg" alt=""/></a>
+<a ><img class="photoWinner" src="{{battle.winner.source}}" alt="{{battle.winner.source}}"/></a>
 <div class="row">
   <!--<i> src=""></i>-->
   <div class="choice">
     <h6>YOU CHOSE</h6>
-    <h5>Kim</h5>
+    <h5>{{battle.winner.nickname}}</h5>
   </div>
 </div>
 <div>
-  <h1 class="votesTotal">224</h1>
+  <h1 class="votesTotal">{{battle.winner.votes}}</h1>
 </div>
 <div class="progress">
   <div class="progress-bar progress-bar-success" style="width: 45%">
@@ -21,4 +21,4 @@
   <h1 class="votesTotal">246</h1>
 </div>
 
-<button type="button" class="btn btn-success btn-block btn-nextBattle">NEXT BATTLE</button>
+<button type="button" ui-sref="battles" class="btn btn-success btn-block btn-nextBattle">NEXT BATTLE</button>
