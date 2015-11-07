@@ -13,10 +13,8 @@ angular.module('weaveQueenApp')
 
 
 function Weaves(DOMAIN) {
-
-
-
-  var weaves = [
+  var weaves = this,
+    objects = [
     {
       nickname: 'Kim',
       source: '/images/Kim.jpg',
@@ -59,43 +57,89 @@ function Weaves(DOMAIN) {
       source: '/images/IMG_0340.JPG',
       id: 7,
       votes: 0
+    },
+
+    ],
+    winner, loser, randomIndex, all, get, getRandom, contestant, challenger,
+    vote, getWinner, getLoser, winningPercent, losingPercent;
+
+  randomIndex = function() {
+    return Math.floor(Math.random() * objects.length);
+  };
+
+  all = function() {
+    return objects;
+  };
+
+  get = function(id) {
+    return objects[id];
+  };
+
+  getWinner = function() {
+    return weaves.winner;
+  };
+
+  getLoser = function() {
+    return weaves.loser;
+  };
+
+  getRandom = function() {
+    return objects[randomIndex()];
+  };
+
+  contestant = getRandom();
+
+  challenger = getRandom();
+
+  while (challenger === contestant) {
+      challenger = getRandom();
+  }
+
+  winner = {};
+
+  loser = {};
+
+  winningPercent = function() {
+    var winningPercent;
+    if (weaves.winner && weaves.loser) {
+      (weaves.loser.votes == 0) ? winningPercent = 100 : winningPercent = (weaves.winner.votes / (weaves.loser.votes + weaves.winner.votes)) * 100;
     }
-  ];
+    return winningPercent;
+  };
 
-  function all() {
-    return weaves;
-  }
+  losingPercent =  function() {
+    var losingPercent;
+    if (weaves.winner && weaves.loser) {
+      (weaves.loser.votes == 0) ? losingPercent = 0 : losingPercent = (weaves.loser.votes / (weaves.loser.votes + weaves.winner.votes)) * 100;
+    }
+    return losingPercent;
+  };
 
-  function get(id) {
-    return weaves[id];
-  }
-
-  function getRandom() {
-    return weaves[randomIndex()];
-  }
-
-  function randomIndex() {
-    return Math.floor(Math.random() * weaves.length);
-  }
-
-
-  function vote() {
+  vote = function() {
     var url = event.target.src;
     var name = '';
     var winner = url.slice(DOMAIN.length);
-    weaves.forEach(function (w) {
-      console.log(w.source);
-      console.log(winner);
-      if (w.source == winner) {
+    objects.forEach(function(w){
+      if (w.source === winner) {
         w.votes += 1;
+        winner = w;
       }
-      return w;
+      loser = (contestant !== winner) ? contestant : challenger;
     });
-  }
-    return {
-      all : all,
-      get : get,
-      getRandom : getRandom
-    };
+    weaves.winner = winner;
+    weaves.loser = loser;
+    //return {winner : winner, loser: loser};
+  };
 
+  return {
+    all : all,
+    get : get,
+    contestant: contestant,
+    challenger: challenger,
+    vote : vote,
+    getWinner: getWinner,
+    getLoser: getLoser,
+    winningPercent : winningPercent,
+    losingPercent : losingPercent
+  };
 }

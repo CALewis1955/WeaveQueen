@@ -1,24 +1,24 @@
-<a ><img class="photoWinner" src="{{battle.winner.source}}" alt="{{battle.winner.source}}"/></a>
+<a ><img class="photoWinner" src="{{votes.weaves.getWinner().source}}" alt="{{votes.weaves.getWinner().source}}"/></a>
 <div class="row">
   <!--<i> src=""></i>-->
   <div class="choice">
     <h6>YOU CHOSE</h6>
-    <h5>{{battle.winner.nickname}}</h5>
+    <h5>{{votes.weaves.getWinner().nickname}}</h5>
   </div>
 </div>
 <div>
-  <h1 class="votesTotal">{{battle.winner.votes}}</h1>
+  <h1 class="votesTotal">{{votes.weaves.getWinner().votes}}</h1>
 </div>
 <div class="progress">
-  <div class="progress-bar progress-bar-success"  style="width: {{battle.winningPercent}}%">
-    <span class="sr-only">{{battle.winningPercent}}% Complete (success)</span>
+  <div class="progress-bar progress-bar-success"  style="width: {{votes.weaves.winningPercent()}}%">
+    <span class="sr-only">{{votes.weaves.winningPercent()}}% Complete (success)</span>
   </div>
-  <div class="progress-bar progress-bar-danger"  style="width: {{battle.losingPercent}}%">
-    <span class="sr-only">(1 - {{battle.winningPercent}}) Complete (danger)</span>
+  <div class="progress-bar progress-bar-danger"  style="width: {{votes.weaves.losingPercent()}}%">
+    <span class="sr-only">({{votes.weaves.losingPercent()}}) Complete (danger)</span>
   </div>
 </div>
 <div>
-  <h1 class="votesTotal">{{battle.loser.votes}}</h1>
+  <h1 class="votesTotal">{{votes.weaves.getLoser().votes}}</h1>
 </div>
 
 <button type="button" ui-sref="battles" class="btn btn-success btn-block btn-nextBattle">NEXT BATTLE</button>

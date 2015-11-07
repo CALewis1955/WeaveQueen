@@ -8,9 +8,11 @@
  * Controller of the weaveQueenApp
  */
 angular.module('weaveQueenApp')
-  .controller('VotesCtrl', votesCtrl);
+  .controller('VotesCtrl',['DOMAIN', 'Weaves', votesCtrl]);
 
-function votesCtrl() {
+function votesCtrl(DOMAIN, Weaves) {
+  var votes = this;
+  votes.weaves = Weaves;
 
 }
 
