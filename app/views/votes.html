@@ -10,15 +10,15 @@
   <h1 class="votesTotal">{{battle.winner.votes}}</h1>
 </div>
 <div class="progress">
-  <div class="progress-bar progress-bar-success" style="width: 45%">
-    <span class="sr-only">35% Complete (success)</span>
+  <div class="progress-bar progress-bar-success"  style="width: {{battle.winningPercent}}%">
+    <span class="sr-only">{{battle.winningPercent}}% Complete (success)</span>
   </div>
-  <div class="progress-bar progress-bar-danger" style="width: 55%">
-    <span class="sr-only">10% Complete (danger)</span>
+  <div class="progress-bar progress-bar-danger"  style="width: {{battle.losingPercent}}%">
+    <span class="sr-only">(1 - {{battle.winningPercent}}) Complete (danger)</span>
   </div>
 </div>
 <div>
-  <h1 class="votesTotal">246</h1>
+  <h1 class="votesTotal">{{battle.loser.votes}}</h1>
 </div>
 
 <button type="button" ui-sref="battles" class="btn btn-success btn-block btn-nextBattle">NEXT BATTLE</button>
