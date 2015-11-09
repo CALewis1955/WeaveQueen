@@ -128,7 +128,6 @@ function Weaves(DOMAIN) {
     });
     weaves.winner = winner;
     weaves.loser = loser;
-    //return {winner : winner, loser: loser};
   };
 
   return {

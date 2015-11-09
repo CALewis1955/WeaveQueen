@@ -161,3 +161,11 @@ a.ng-scope {
 .progress-bar-danger {
   background-color: red;
 }
+/*
+div.rotate {
+  -webkit-transition-duration: 2s;
+  transition-duration: 2s;
+  -webkit-transform: rotateY(150deg);
+  transform: rotateY(150deg);
+}
+*/
