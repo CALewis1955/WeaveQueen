@@ -61,7 +61,8 @@ function Weaves(DOMAIN) {
 
     ],
     winner, loser, randomIndex, all, get, getRandom, contestant, challenger,
-    vote, getWinner, getLoser, winningPercent, losingPercent;
+    vote, getWinner, getLoser, winningPercent, losingPercent,
+    getContestant, getChallenger, doBattle;
 
   randomIndex = function() {
     return Math.floor(Math.random() * objects.length);
@@ -84,16 +85,25 @@ function Weaves(DOMAIN) {
   };
 
   getRandom = function() {
-    return objects[randomIndex()];
+    return objects[randomIndex];
   };
 
-  contestant = getRandom();
+  contestant = {};
 
-  challenger = getRandom();
+  challenger = {};
 
-  while (challenger === contestant) {
+  getContestant = function() {
+    contestant = getRandom();
+    return contestant;
+  };
+
+  getChallenger = function() {
+    challenger = getRandom();
+    while (challenger === contestant) {
       challenger = getRandom();
-  }
+    }
+    return challenger;
+  };
 
   winner = {};
 
@@ -102,7 +112,7 @@ function Weaves(DOMAIN) {
   winningPercent = function() {
     var winningPercent;
     if (weaves.winner && weaves.loser) {
-      (weaves.loser.votes == 0) ? winningPercent = 100 : winningPercent = (weaves.winner.votes / (weaves.loser.votes + weaves.winner.votes)) * 100;
+      (weaves.loser.votes === 0) ? winningPercent = 100 : winningPercent = (weaves.winner.votes / (weaves.loser.votes + weaves.winner.votes)) * 100;
     }
     return winningPercent;
   };
@@ -110,14 +120,13 @@ function Weaves(DOMAIN) {
   losingPercent =  function() {
     var losingPercent;
     if (weaves.winner && weaves.loser) {
-      (weaves.loser.votes == 0) ? losingPercent = 0 : losingPercent = (weaves.loser.votes / (weaves.loser.votes + weaves.winner.votes)) * 100;
+      (weaves.loser.votes === 0) ? losingPercent = 0 : losingPercent = (weaves.loser.votes / (weaves.loser.votes + weaves.winner.votes)) * 100;
     }
     return losingPercent;
   };
 
   vote = function() {
     var url = event.target.src;
-    var name = '';
     var winner = url.slice(DOMAIN.length);
     objects.forEach(function(w){
       if (w.source === winner) {
@@ -133,8 +142,8 @@ function Weaves(DOMAIN) {
   return {
     all : all,
     get : get,
-    contestant: contestant,
-    challenger: challenger,
+    getContestant: getContestant,
+    getChallenger: getChallenger,
     vote : vote,
     getWinner: getWinner,
     getLoser: getLoser,

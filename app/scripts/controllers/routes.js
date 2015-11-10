@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('weaveQueenApp')
 
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider) {
