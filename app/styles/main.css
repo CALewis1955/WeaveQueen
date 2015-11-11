@@ -161,11 +161,20 @@ a.ng-scope {
 .progress-bar-danger {
   background-color: red;
 }
-/*
+
 div.rotate {
-  -webkit-transition-duration: 2s;
-  transition-duration: 2s;
-  -webkit-transform: rotateY(150deg);
-  transform: rotateY(150deg);
+  animation-name: flip;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
 }
-*/
+
+@keyframes flip {
+  from {transform: rotateY(90deg);}
+  to  {transform: rotateY(180deg);}
+}
+
+@-webkit-keyframes  {
+  from {-webkit-transform: rotateY(90deg);}
+  to {-webkit-transform: rotateY(150deg);}
+}
