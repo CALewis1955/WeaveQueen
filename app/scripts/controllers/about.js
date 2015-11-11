@@ -16,4 +16,4 @@ function aboutCtrl($scope) {
       'AngularJS',
       'Karma'
     ];
-  }
+}

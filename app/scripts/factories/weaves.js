@@ -57,12 +57,12 @@ function Weaves(DOMAIN) {
       source: '/images/IMG_0340.JPG',
       id: 7,
       votes: 0
-    },
+    }
 
     ],
     winner, loser, randomIndex, all, get, getRandom, contestant, challenger,
     vote, getWinner, getLoser, winningPercent, losingPercent,
-    getContestant, getChallenger, doBattle;
+    getContestant, getChallenger;
 
   randomIndex = function() {
     return Math.floor(Math.random() * objects.length);
@@ -85,12 +85,9 @@ function Weaves(DOMAIN) {
   };
 
   getRandom = function() {
-    return objects[randomIndex];
+    return objects[randomIndex()];
   };
 
-  contestant = {};
-
-  challenger = {};
 
   getContestant = function() {
     contestant = getRandom();

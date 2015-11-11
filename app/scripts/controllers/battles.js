@@ -14,15 +14,6 @@ angular.module('weaveQueenApp')
 function battlesCtrl(DOMAIN, Weaves) {
   var battle = this;
   battle.weaves = Weaves;
-  battle.contestant = Weaves.getContestant();
-  battle.challenger = Weaves.getChallenger();
+  battle.contestant = battle.weaves.getContestant();
+  battle.challenger = battle.weaves.getChallenger();
 }
-
-
-
-
-
-
-
-
-
