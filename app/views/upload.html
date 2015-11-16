@@ -1,0 +1,11 @@
+
+<button type="button" class="btn btn-success btn-block btn-upload" ui-sref="battles" ng-click="sendData()">ADD A PHOTO</button>
+<form>
+  <input type="file" ng-model="files" onchange="angular.element(this).scope().selectPhoto(this)"><br>
+  <li ng-repeat="file in files"> <!-- " track by $index">-->
+    <img src={{src}} height="200" width="200" alt="Image preview...">
+  </li>
+  <img src={{src}} height="200" width="200" alt="Image preview...">
+
+</form>
+

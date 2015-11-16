@@ -53,6 +53,11 @@ angular.module('weaveQueenApp')
       templateUrl: 'views/favorites.html',
       controller: 'FavoritesCtrl as favorites'
     })
+    .state('upload', {
+      url: '/upload',
+      templateUrl: 'views/upload.html',
+      controller: 'UploadCtrl as upload'
+    })
     .state('settings', {
       url: '/settings',
       templateUrl: 'views/settings.html',

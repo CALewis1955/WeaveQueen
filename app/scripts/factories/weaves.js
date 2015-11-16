@@ -8,13 +8,15 @@
  * Factory for the weaveQueenApp
  */
 angular.module('weaveQueenApp')
-  .factory('Weaves', ['DOMAIN', Weaves]);
+  .factory('Weaves', ['DOMAIN', 'firebaseDataService', Weaves]);
 
 
 
-function Weaves(DOMAIN) {
+function Weaves(DOMAIN, firebaseDataService) {
   var weaves = this,
-    objects = [
+    objects = firebaseDataService.getAll(),
+    items =
+      [
     {
       nickname: 'Kim',
       source: '/images/Kim.jpg',
@@ -65,10 +67,13 @@ function Weaves(DOMAIN) {
     getContestant, getChallenger;
 
   randomIndex = function() {
-    return Math.floor(Math.random() * objects.length);
+    return Math.floor(Math.random() * 7);
   };
 
   all = function() {
+    for (var obj in objects) {
+      console.log(obj);
+    }
     return objects;
   };
 
@@ -127,7 +132,7 @@ function Weaves(DOMAIN) {
     var winner = url.slice(DOMAIN.length);
     objects.forEach(function(w){
       if (w.source === winner) {
-        w.votes += 1;
+        (parseInt(w.votes) == 0) ? w.votes = 1 : w.votes += 1;
         winner = w;
       }
       loser = (contestant !== winner) ? contestant : challenger;
